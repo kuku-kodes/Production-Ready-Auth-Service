@@ -1,0 +1,40 @@
+server:
+  port: "8080"
+  read_timeout: 10s
+  write_timeout: 10s
+  idle_timeout: 60s
+
+database:
+  host: localhost
+  port: "5432"
+  user: postgres
+  password: postgres
+  dbname: auth_service
+  sslmode: disable
+  max_open_conns: 25
+  max_idle_conns: 10
+  conn_max_lifetime: 5m
+
+redis:
+  host: localhost
+  port: "6379"
+  password: ""
+  db: 0
+
+jwt:
+  access_secret: "super-secret-access-key-change-in-production"
+  refresh_secret: "super-secret-refresh-key-change-in-production"
+  access_duration: 15m
+  refresh_duration: 168h
+  issuer: "auth-service"
+
+app:
+  name: "auth-service"
+  environment: "development"
+  log_level: "debug"
+  cors_origins:
+    - "*"
+  bcrypt_cost: 12
+  rate_limit:
+    requests_per_minute: 60
+    burst_size: 20
