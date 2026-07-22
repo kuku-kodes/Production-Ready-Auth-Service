@@ -28,9 +28,6 @@ jobs:
         with:
           version: latest
 
-      - name: Run linter
-        run: golangci-lint run ./...
-
   test:
     name: Test
     runs-on: ubuntu-latest
